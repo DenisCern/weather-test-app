@@ -1,0 +1,55 @@
+ <nav class="navbar bg-dark">
+    <form inline>
+    <a class="navbar-brand" href="/">Home</a>
+    {{#if isLoggined}}
+    <a class="navbar-brand" href="/cities">Cities</a>
+    <a class="navbar-brand" href="/favourites">Favourites</a>
+    {{/if}}
+    </form>
+    <form inline>
+         <a class="navbar-brand" href="/login">Log In</a>
+         <a class="navbar-brand" href="/registration">Sigh Up</a>
+    </form>
+</nav>
+
+<center>
+<form class="form-horizontal" action='' method="POST">
+  <fieldset>
+    <div id="legend">
+      <legend class="">Register</legend>
+    </div>
+    {{#if emptyField}}
+      <font color = "red">Fill all fields!</font>
+    {{/if}}
+    <div class="control-group">
+      <label class="control-label"  for="username">Username</label>
+      <div class="controls">
+        <input type="text" id="username" name="username" placeholder="Username" class="input-xlarge">
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <label class="control-label" for="email">E-mail</label>
+      <div class="controls">
+        <input type="text" id="email" name="email" placeholder="E-mail" class="input-xlarge" minlength="2" maxlength="16">
+        {{#if error}}
+         <p> <font color = "red">This email is used by another user. Choose another one!</font> </p>
+        {{/if}}
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <label class="control-label" for="password">Password</label>
+      <div class="controls">
+        <input type="password" id="password" name="password" placeholder="Password" class="input-xlarge" minlength="2" maxlength="32">
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <div class="controls">
+        <button class="btn btn-success">Register</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+</center>

@@ -1,0 +1,31 @@
+<nav class="navbar bg-dark">
+    <form inline>
+        {{#if isLoggined}}
+        <a class="navbar-brand" href="/">Home</a>
+        <a class="navbar-brand" href="/cities">Cities</a>
+        <a class="navbar-brand" href="/favourites">Favourites</a>
+    </form>
+    <form inline>
+        <a class="navbar-brand" href="/logout">Log out</a>
+    </form>
+    {{else}}
+    <a class="navbar-brand" href="/">Home</a>
+    </form>
+    <form inline>
+        <a class="navbar-brand" href="/login">Log In</a>
+        <a class="navbar-brand" href="/registration">Sigh Up</a>
+    </form>
+    {{/if}}
+</nav>
+
+{{#if isLoggined}}
+<center>
+    <h1>Hi, {{userName}} !</h1>
+    <h2>Try to find a city in <a href="/cities">search page</a>, or check your <a href="/favourites">favourites</a></h2>
+</center>
+{{else}}
+<center>
+    <h1>Welcome to weather app!</h1>
+    <h2>Please <a href="/registration">sigh up</a> or <a href="/login">log in</a> for using the app!</h2>
+</center>
+{{/if}}

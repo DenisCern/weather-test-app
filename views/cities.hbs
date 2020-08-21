@@ -1,0 +1,65 @@
+<nav class="navbar bg-dark">
+  <form inline>
+    <a class="navbar-brand" href="/">Home</a>
+    <a class="navbar-brand" href="/cities">Cities</a>
+    <a class="navbar-brand" href="/favourites">Favourites</a>
+  </form>
+  <form inline>
+    <a class="navbar-brand" href="/logout">Log out</a>
+  </form>
+</nav>
+
+<form class="form-horizontal" action='' method="POST">
+  <div class="control-group">
+    <h1 class="control-label" for="city">Search a city</h1>
+    {{#if error}}
+    <font color="red">City not found</font>
+    {{/if}}
+    <div class="controls">
+      <input type="text" id="city" name="city" placeholder="Tap a city" class="input-xlarge">
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <button class="btn btn-success">Find</button>
+    </div>
+  </div>
+</form>
+
+<center>
+  <form action='/cities' method="POST">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="controls">
+          {{#if showButton}}
+          <h2>Finded cities</h2>
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">City</th>
+                <th scope="col">Current temperature</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each cities}}
+              <tr>
+                <th scope="row"></th>
+                <td>{{this.name}}</td>
+                <td align="center">{{this.temp}}&#8451</td>
+                <td><input type="checkbox" name="cities" value={{this.name}} /></td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+          <div class="controls">
+            <button class="btn btn-success">Add to favourite</button>
+          </div>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </form>
+</center>

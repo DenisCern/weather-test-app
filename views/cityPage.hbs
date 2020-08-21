@@ -1,0 +1,41 @@
+<nav class="navbar bg-dark">
+  <form inline>
+    <a class="navbar-brand" href="/">Home</a>
+    <a class="navbar-brand" href="/cities">Cities</a>
+    <a class="navbar-brand" href="/favourites">Favourites</a>
+  </form>
+  <form inline>
+    <a class="navbar-brand" href="/logout">Log out</a>
+  </form>
+</nav>
+<center>
+  <h2>City: <b>{{cityname}}</b></h2>
+</center>
+
+{{#each weather}}
+<div class="card-weather">
+  <div class="container">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <h4><b>Date:</b> {{this.date}}</h4>
+      </li>
+      <div class="row">
+        <div class="col">
+          <p><b>Temperature {{this.pod}}:</b> {{this.temp}}&#8451</p>
+          <p><b>Feels like:</b> {{this.feels}}&#8451</p>
+          <p><b>Outside:</b> {{this.weatherMain}}, {{this.weatherDescription}}</p>
+          <p><b>Wind:</b> {{this.wind}} m/s</p>
+        </div>
+        {{#if this.secondItem}}
+        <div class="col">
+          <p><b>Temperature {{this.secondItem.pod}}:</b> {{this.secondItem.temp}}&#8451</p>
+          <p><b>Feels like:</b> {{this.secondItem.feels}}&#8451</p>
+          <p><b>Outside:</b> {{this.secondItem.weatherMain}}, {{this.secondItem.weatherDescription}}</p>
+          <p><b>Wind:</b> {{this.secondItem.wind}} m/s</p>
+        </div>
+        {{/if}}
+      </div>
+    </ul>
+  </div>
+</div>
+{{/each}}

@@ -1,0 +1,28 @@
+<nav class="navbar bg-dark">
+  <form inline>
+    <a class="navbar-brand" href="/">Home</a>
+    <a class="navbar-brand" href="/cities">Cities</a>
+    <a class="navbar-brand" href="/favourites">Favourites</a>
+  </form>
+  <form inline>
+    <a class="navbar-brand" href="/logout">Log out</a>
+  </form>
+</nav>
+
+{{#each cities}}
+<div class="card">
+  <div class="container">
+    <button class="deletebtn" value={{this.name}} onclick="deleteItem()">X</button>
+    <label><b>{{this.name}} , {{this.country}}</b><label>
+        <p><b>Current temperature:</b> {{this.temp}}&#8451</p>
+        <p><b>Feels like:</b> {{this.tempFeel}}&#8451</p>
+        <p><b>Outside:</b> {{this.state}}</p>
+        <form action="/favourites/{{this.name}}" method="POST">
+          <div class="controls">
+            <input id="city" type="hidden" name="cities" value={{this.name}} />
+            <button id="infobtn" class="btn btn-success">Get more info</button>
+          </div>
+        </form>
+  </div>
+</div>
+{{/each}}
